@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<data>
+    <variable
+        name="signupModel"
+        type="com.example.cabservice.ui.auth.AuthViewModel" />
+</data>
+
+
+
+<RelativeLayout
+    android:id="@+id/signup_root_layout"
+    android:background="@drawable/login_gradient"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.auth.SignupActivity">
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+
+                android:layout_marginTop="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/taxi"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vardaan Cab Service"
+                android:textColor="@color/White"
+                android:textSize="30dp"/>
+
+
+            <androidx.cardview.widget.CardView
+                android:padding="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+
+
+
+                    <EditText
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/sign_up_fullname_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:padding="5dp"
+                        android:background="@drawable/rectangle_border"
+                        android:drawableLeft="@drawable/ic_person_black_24dp"
+                        android:drawableStart="@drawable/ic_person_black_24dp"
+                        android:drawableTint="@color/colorPrimaryDark"
+                        android:drawablePadding="10dp"
+                        android:hint="Username"
+                        android:text="@{signupModel.name}"/>
+
+                    <EditText
+                        android:background="@drawable/rectangle_border"
+                        android:id="@+id/sign_up_email_id_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:padding="5dp"
+                        android:layout_marginTop="10dp"
+                        android:drawableStart="@drawable/ic_phone_black_24dp"
+                        android:drawableLeft="@drawable/ic_phone_black_24dp"
+                        android:drawableTint="@color/colorPrimaryDark"
+                        android:drawablePadding="10dp"
+                        android:inputType="textEmailAddress"
+                        android:hint="Mobile"
+                        android:text="@{signupModel.mobile}"/>
+
+
+                    <EditText
+                        android:background="@drawable/rectangle_border"
+                        android:id="@+id/sign_up_mobile_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:padding="5dp"
+                        android:layout_marginTop="10dp"
+                        android:drawableStart="@drawable/ic_mail_black_24dp"
+                        android:drawableLeft="@drawable/ic_mail_black_24dp"
+                        android:drawableTint="@color/colorPrimaryDark"
+                        android:drawablePadding="10dp"
+                        android:inputType="textEmailAddress"
+                        android:hint="Email"
+                        android:text="@{signupModel.email}"/>
+
+                    <EditText
+                        android:background="@drawable/rectangle_border"
+                        android:id="@+id/sign_up_password_et"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:padding="5dp"
+                        android:inputType="textPassword"
+                        android:drawableLeft="@drawable/ic_lock_black_24dp"
+                        android:drawableStart="@drawable/ic_lock_black_24dp"
+                        android:drawableTint="@color/colorPrimaryDark"
+                        android:drawablePadding="10dp"
+                        android:hint="Password"
+                        android:text="@{signupModel.password}"/>
+
+
+
+
+                    <Button
+                        android:layout_marginTop="20dp"
+                        android:onClick="@{signupModel::onSignupButtonClicked}"
+                        android:id="@+id/sign_up_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@drawable/btn_bg"
+                        android:elevation="2sp"
+                        android:text="SignUp"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="16sp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
+                        />
+
+
+
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:id="@+id/text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/White"
+                    android:textSize="16sp"
+                    android:text="Already have account ? "/>
+                <TextView
+                    android:layout_toRightOf="@id/text"
+                    android:id="@+id/sign_in_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/blue1"
+                    android:textSize="18sp"
+                    android:onClick="@{signupModel::onLogin}"
+                    android:text="Sign In here"/>
+            </RelativeLayout>
+
+
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ProgressBar
+        android:visibility="invisible"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progress_bar1"
+        android:layout_gravity="center"/>
+
+</RelativeLayout>
+
+
+</layout>
